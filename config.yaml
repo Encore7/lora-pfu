@@ -1,0 +1,29 @@
+project: lora-pfu
+
+# General experiment settings
+mode: lora-pfu  # or fed-au
+dataset: FMNIST  # options: MNIST, FMNIST, CIFAR10
+data_dir: ./data
+seed: 42
+
+# Federated Learning config
+federated:
+  num_clients: 10
+  iid_dirichlet: 0.3
+  num_rounds: 50
+  local_epochs: 5
+  batch_size: 32
+
+# Model config
+model:
+  name: resnet18
+  optimizer: adam
+  learning_rate: 0.001
+  weight_decay: 0.0005
+  momentum: 0.9
+
+# LoRA config
+lora:
+  rank: 4
+  alpha: 16
+  dropout: 0.1
